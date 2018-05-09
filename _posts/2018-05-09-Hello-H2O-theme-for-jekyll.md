@@ -1,3 +1,12 @@
+---
+layout: post
+title: 'jupiterd.top'
+subtitle: '你好H2O theme for jekyll'
+description: '新建博客jupiterd.top, 对H2O theme for jekyll主题的修改的说明'
+date: 2017-04-18
+categories: 技术
+tags: jekyll 主题
+---
 # jupiterd.top 
 首先感谢该主题的作者[kaeyleo](https://github.com/kaeyleo)
 * **原版主题**及**详细文档**请查看[jekyll-theme-H2O](https://github.com/kaeyleo/jekyll-theme-H2O)

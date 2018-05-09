@@ -3,7 +3,7 @@ layout: post
 title: 'jupiterd.top'
 subtitle: '你好H2O theme for jekyll'
 description: '新建博客jupiterd.top, 对H2O theme for jekyll主题的修改的说明'
-date: 2017-04-18
+date: 2018-05-09
 categories: 技术
 tags: jekyll 主题
 ---

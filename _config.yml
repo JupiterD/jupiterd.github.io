@@ -7,6 +7,9 @@ url: 'http://jupiterd.top' # your host
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
 
+# 流量统计
+baidu_statistics: 5f878f92eb47dfd9ea15128a993dbf04 # 如果不需要，请留空
+
 # Navigation links
 nav:
   home: '/'

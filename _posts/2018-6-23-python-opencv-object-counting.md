@@ -14,7 +14,7 @@ tags: python opencv
 本项目源代码已上传github, 这里是[地址](https://github.com/JupiterD/ObjectCounting)。
 
 ### 最终效果
-![image](http://p88h3xolw.bkt.clouddn.com/18-6-22/11034124.jpg)
+![image](http://p88h3xolw.bkt.clouddn.com/18-6-24/53667606.jpg)
 
 ### 测试视频
 此测试视频来自youtube, 如需下载请自备梯子。
@@ -87,26 +87,6 @@ def background_update(frame, model, learn_rate):
     return model.apply(frame, None, learn_rate)
 
 
-def filter_mask(frame, kernel):
-    """
-    将图像去噪
-
-    :param frame: 视频帧
-    :param kernel: 运算核
-    :return: 去噪后的二值化图像
-    """
-    closing = cv.morphologyEx(frame, cv.MORPH_CLOSE, kernel)
-    opening = cv.morphologyEx(closing, cv.MORPH_OPEN, kernel)
-
-    expend = cv.dilate(opening, kernel, iterations=2)
-    erode = cv.erode(expend, kernel)
-
-    # 清除低于阀值噪点, 因为可能还存在灰色像素
-    threshold = cv.threshold(erode, 240, 255, cv.THRESH_BINARY)[1]
-
-    return threshold
-
-
 if __name__ == '__main__':
     video = "./video/3.mp4"
 
@@ -156,6 +136,7 @@ def filter_mask(frame, kernel):
     :param kernel: 运算核
     :return: 去噪后的二值化图像
     """
+    # 开闭运算
     closing = cv.morphologyEx(frame, cv.MORPH_CLOSE, kernel)
     opening = cv.morphologyEx(closing, cv.MORPH_OPEN, kernel)
 
@@ -676,15 +657,11 @@ def draw_frame(frame, object_list, string_and_coordinate, font, counting_log=Non
     绘制图像
 
     :param frame: 图像
-    :type object_list: list
     :param object_list: 物体列表
-    :type string_and_coordinate: list
     :param string_and_coordinate: 显示的字符串和坐标的列表
     :param font: 字体
     :param counting_log: 物体计数日志
-    :type split_line: int
     :param split_line: 检测分割线的y轴坐标
-    :type counting_line: int
     :param counting_line: 计数线的y轴坐标
     :return: frame
     """
@@ -783,7 +760,6 @@ if __name__ == '__main__':
         object_list, new_object_in, new_object_out = pipeline.run(frame_temp, 35, 35, object_list, counting_log)
         object_in += new_object_in
         object_out += new_object_out
-        end_time = cv.getTickCount()
 
         counting_string = "in: {}  out: {}".format(object_in, object_out)
 
@@ -800,6 +776,7 @@ if __name__ == '__main__':
         retval, frame = cap.read()
 
         fps += 1
+        end_time = cv.getTickCount()
 
         # 一秒更新一次fps
         total_time += (end_time - start_time) / tick_frequency

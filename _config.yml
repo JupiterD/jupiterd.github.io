@@ -8,7 +8,8 @@ url: 'http://jupiterd.top' # your host
 baseurl: ''
 
 # 流量统计
-baidu_statistics: 5f878f92eb47dfd9ea15128a993dbf04 # 如果不需要，请留空
+baidu_statistics: # 如果不需要，请留空
+google_analytics: UA-121419772-1 # 如果不需要，请留空
 
 # Navigation links
 nav:

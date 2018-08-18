@@ -1,0 +1,286 @@
+---
+layout: post
+title: 'Ubuntu server 18.04下Hadoop 3.1.1 伪分布式模式部署流程'
+subtitle: 'Ubuntu server 18.04下Hadoop 3.1.1 伪分布式模式部署流程'
+description: '在最新的ubuntu server 18.04中部署最新的Hadoop 3.1.1，并以伪分布模式运行'
+date: 2018-08-18
+categories: 技术
+tags: Ubuntu Hadoop
+---
+# Ubuntu server 18.04下Hadoop 3.1.1 伪分布式模式部署流程
+
+## 一、部署安装包准备
+
+|  名称  | 版本  |                           下载链接                           |
+| :----: | :---: | :----------------------------------------------------------: |
+| Hadoop | 3.1.1 | [点击下载](http://www-us.apache.org/dist/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz) |
+
+
+
+## 二、部署Hadoop
+
+### 先决条件
+
+#### 必备软件
+
+* Java 8 或更高的版本
+* ssh
+* pdsh
+
+
+
+#### 安装软件
+
+如果你的集群上没有安装这些必备软件，请安装他们。
+
+在终端中输入:
+
+```shell
+sudo apt-get install openjdk-8-*
+sudo apt-get install ssh
+sudo apt-get install pdsh
+```
+
+
+
+### 安装Hadoop
+
+Hadoop可以使用上面的链接获取安装包。
+
+在终端输入:
+
+```shell
+wget http://www-us.apache.org/dist/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz
+```
+
+在下载完成后，将Hadoop解压到*/srv*和*/opt*目录中是一个不错的选择。但是*/opt*通常包含非打包程序，通常为源码，很多开发人员将他们的代码放在那里用于部署。而*/srv*目录代表服务；Hadoop、HBase、Hive等作为服务在机器上运行，因此应该将Hadoop解压到这里。
+
+输入一下命令:
+
+~~~shell
+tar -xzf hadoop-3.1.1.tar.gz
+sudo mv hadoop-3.1.1 /srv/
+sudo chmod g+w -R /srv/hadoop-3.1.1/
+sudo ln -s /srv/hadoop-3.1.1 /srv/hadoop
+~~~
+
+这些命令将解压Hadoop，将其移至服务目录，然后设置权限。最后我们创建一个Hadoop的软链接，以便将来轻松地升级Hadoop发行版本，并无需修改环境变量。
+
+
+
+### 设置环境
+
+为了确保一切正常执行，并且简化将来的命令，我们需要设置一些环境变量。
+
+在终端中输入:
+
+~~~shell
+vim ~/.bashrc
+~~~
+
+将如下内容添加到该文件的最下面:
+
+~~~shell
+export HADOOP_HOME=/srv/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+~~~
+
+添加完后在终端输入命令:
+
+~~~shell
+source ~/.bashrc
+~~~
+
+然后我们可以在终端通过运行Hadoop命令来检查环境配置是否成功:
+
+~~~shell
+hadoop version
+~~~
+
+在返回的结果中如果看到以下类似信息则表示环境配置成功。
+
+>Hadoop 3.1.1
+>Source code repository https://github.com/apache/hadoop -r 2b9a8c1d3a2caf1e733d57f346af3ff0d5ba529c
+>Compiled by leftnoteasy on 2018-08-02T04:26Z
+>Compiled with protoc 2.5.0
+>From source with checksum f76ac55e5b5ff0382a9f7df36a3ca5a0
+>This command was run using /srv/hadoop-3.1.1/share/hadoop/common/hadoop-common-3.1.1.jar
+
+
+
+### Hadoop配置
+
+设置伪分布模式的Hadoop的最重要的步骤就是配置Hadoop环境
+
+进入Hadoop目录:
+
+~~~shell
+cd $HADOOP_HOME
+~~~
+
+
+
+编辑*hadoop-env.sh*文件:
+
+~~~shell
+vim etc/hadoop/hadoop-env.sh
+~~~
+
+找到并配置:
+
+~~~shell
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+~~~
+
+
+
+接下去依次配置以下文件。
+
+*etc/hadoop/core-site.xml*:
+
+~~~shell
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/var/app/hadoop/data</value>
+    </property>
+</configuration>
+~~~
+
+
+
+*etc/hadoop/hdfs-site.xml*:
+
+~~~shell
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+~~~
+
+
+
+*etc/hadoop/mapred-site.xml*:
+
+~~~shell
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <property>
+        <name>mapreduce.application.classpath</name>
+        <value>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*:$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*</value>
+    </property>
+</configuration>
+~~~
+
+
+
+*etc/hadoop/yarn-site.xml*:
+
+~~~shell
+<configuration>
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+    <property>
+        <name>yarn.nodemanager.env-whitelist</name>
+        <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+    </property>
+</configuration>
+~~~
+
+
+
+### 设置SSH
+
+接下来我们测试一下我们能否利用ssh不需要输入密码就能连接到localhost。
+
+~~~shell
+ssh localhost
+~~~
+
+如果需要输入密码，则需要进行以下配置:
+
+~~~shell
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+~~~
+
+如果不设置免密连接localhost，在下面启动Hadoop时会出现权限问题，因此在这里需要设置免密连接localhost。
+
+
+
+### 格式化Namenode
+
+在*etc/hadoop/core-site.xml*配置文件中，我们设置了Namenode将他的文件保存在*/var/app/hadoop/data*目录中。因此我们需要初始化这个目录，然后才能格式化Namenode:
+
+~~~shell
+sudo mkdir -p /var/app/hadoop/data
+sudo chmod -R 777 /var/app/hadoop/
+hdfs namenode -format
+~~~
+
+在运行完以后，输入以下命令:
+
+~~~shell
+ls /var/app/hadoop/data/
+~~~
+
+如果看到有一个*dfs*目录，则表示Hadoop设置完成。
+
+
+
+### 启动Hadoop
+
+在完成了上述的所有配置后，现在就可以启动Hadoop守护程序了。
+
+输入以下命令:
+
+~~~shell
+start-dfs.sh
+start-yarn.sh
+~~~
+
+此处可能会出现如下错误:
+
+> localhost: rcmd: socket: Permission denied
+
+如果出现此错误，请输入一下命令:
+
+~~~shell
+sudo touch /etc/pdsh/rcmd_default
+sudo vim /etc/pdsh/rcmd_default
+~~~
+
+在打开的文件中输入ssh，然后保存。然后重新启动Hadoop。
+
+
+
+启动完成后可以使用jps命令查看正在运行的进程。
+
+~~~shell
+jps
+~~~
+
+如果看到以下类似的结果，则表明启动成功。
+
+>49379 DataNode
+>49844 ResourceManager
+>49620 SecondaryNameNode
+>50024 NodeManager
+>49176 NameNode
+>50350 Jps
+
+除了jps以外，其他的都是Hadoop的进程，如果有进程没有运行，则说明在操作中出现了错误。你可以在Hadoop目录下的log目录中找到相关日志，检查并解决错误。

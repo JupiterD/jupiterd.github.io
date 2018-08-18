@@ -102,10 +102,15 @@ hadoop version
 在返回的结果中如果看到以下类似信息则表示环境配置成功。
 
 >Hadoop 3.1.1
+>
 >Source code repository https://github.com/apache/hadoop -r 2b9a8c1d3a2caf1e733d57f346af3ff0d5ba529c
+>
 >Compiled by leftnoteasy on 2018-08-02T04:26Z
+>
 >Compiled with protoc 2.5.0
+>
 >From source with checksum f76ac55e5b5ff0382a9f7df36a3ca5a0
+>
 >This command was run using /srv/hadoop-3.1.1/share/hadoop/common/hadoop-common-3.1.1.jar
 
 
@@ -277,10 +282,15 @@ jps
 如果看到以下类似的结果，则表明启动成功。
 
 >49379 DataNode
+>
 >49844 ResourceManager
+>
 >49620 SecondaryNameNode
+>
 >50024 NodeManager
+>
 >49176 NameNode
+>
 >50350 Jps
 
 除了jps以外，其他的都是Hadoop的进程，如果有进程没有运行，则说明在操作中出现了错误。你可以在Hadoop目录下的log目录中找到相关日志，检查并解决错误。

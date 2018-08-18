@@ -144,7 +144,7 @@ c.NotebookApp.open_browser = False # 禁止notebook启动时自动打开浏览�
 
 修改完成后，我们已经可以远程访问Jupyter notebook了,我们只需要在浏览器中输入http://服务器ip:8888，然后再打开的页面中输入密码即可访问了，但是我们还不能与pyspark交互。
 
-### 
+
 
 ![](http://p88h3xolw.bkt.clouddn.com/18-8-19/49249765.jpg)
 

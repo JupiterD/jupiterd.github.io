@@ -88,6 +88,8 @@ matplotlib已经可以正常显示中文了！
 sns.set_style({'font.sans-serif':['simhei']})
 ~~~
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/22276904.jpg)
+![](http://p88h3xolw.bkt.clouddn.com/18-9-15/79252791.jpg)
+
+
 
 此时我们就可以正常显示中文了。

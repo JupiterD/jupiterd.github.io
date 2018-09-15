@@ -13,7 +13,7 @@ tags: Jupyter-notebook
 
 
 
-### 1. 绘图
+## 1. 绘图
 
 ~~~python3
 %matplotlib inline
@@ -23,7 +23,7 @@ tags: Jupyter-notebook
 
 
 
-### 2. 图像支持高分屏
+## 2. 图像支持高分屏
 
 ~~~python
 %config InlineBackend.figure_format='retina'
@@ -41,7 +41,7 @@ tags: Jupyter-notebook
 
 
 
-### 3. 打印多个变量
+## 3. 打印多个变量
 
 ~~~python
 from IPython.core.interactiveshell import InteractiveShell
@@ -50,7 +50,7 @@ InteractiveShell.ast_node_interactivity = "all"
 
 
 
-### 4. 隐藏所有Warning
+## 4. 隐藏所有Warning
 
 ~~~python
 import warnings
@@ -59,7 +59,7 @@ warnings.filterwarnings("ignore")
 
 
 
-### 5. 在函数中打印pandas表格
+## 5. 在函数中打印pandas表格
 
 使用**Ipython**库中的**display**函数
 
@@ -73,7 +73,7 @@ def display_table(df):
 
 
 
-### 6. 阻止matplotlib状态输出
+## 6. 阻止matplotlib状态输出
 
 在使用matplotlib绘图时，matplotlib通常会打印绘图状态，为了美观我们可以使用**分号(";")**来阻止状态输出。
 
@@ -103,13 +103,13 @@ def display_table(df):
 
 
 
-### 7. 显示所有变量详细信息
+## 7. 显示所有变量详细信息
 
 ![](http://p88h3xolw.bkt.clouddn.com/18-9-15/27923396.jpg)
 
 
 
-### 8. 显示函数帮助
+## 8. 显示函数帮助
 
 **方法一:**
 

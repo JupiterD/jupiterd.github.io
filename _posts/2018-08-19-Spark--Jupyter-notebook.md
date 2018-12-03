@@ -130,7 +130,7 @@ passwd()
 
 如下图所示:
 
-![](http://p88h3xolw.bkt.clouddn.com/18-8-19/49578594.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/57553733.jpg)
 
 然后复制内容**sha1:.....**，然后修改默认配置文件:
 
@@ -146,7 +146,7 @@ c.NotebookApp.open_browser = False # 禁止notebook启动时自动打开浏览�
 
 
 
-![](http://p88h3xolw.bkt.clouddn.com/18-8-19/49249765.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/61899922.jpg)
 
 
 

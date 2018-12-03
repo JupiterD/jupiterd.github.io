@@ -14,7 +14,7 @@ tags: python opencv
 本项目源代码已上传github, 这里是[地址](https://github.com/JupiterD/ObjectCounting)。
 
 ### 最终效果
-![image](http://p88h3xolw.bkt.clouddn.com/18-6-24/53667606.jpg)
+![image](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/8369333.jpg)
 
 ### 测试视频
 此测试视频来自youtube, 如需下载请自备梯子。
@@ -37,7 +37,7 @@ tags: python opencv
 
 **foreground_objects = current_frame - background_layer(前景物体 = 当前帧 - 背景帧)**
 
-![BackgroundSubtractorImage](http://p88h3xolw.bkt.clouddn.com/18-6-23/93442510.jpg)
+![BackgroundSubtractorImage](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/4070443.jpg)
 
 但是在通常情况下我们很难在一个视频中找到一张完整的背景图片作为背景层, 并且在实际环境中通常会有许多光线的干扰, 比如随着太阳的移动, 建筑的影子也在随之移动, 因此只保存一张静态的背景层是远远不够的, 我们需要适时调整背景图像来确保不被环境干扰, 因此我们需要在这个视频中保存一些帧数, 并试图找出大多数的背景像素。但问题是, 我们将如何得到这个背景层, 背景层的好坏将决定我们获取的运动物体的质量。
 
@@ -46,9 +46,9 @@ tags: python opencv
 在本项目中, 为了加快程序识别速度, 我们只识别图像下半部分的图像。
 
 原图
-![原图](http://p88h3xolw.bkt.clouddn.com/18-6-23/95812560.jpg)
+![原图](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/69520523.jpg)
 使用MOG2算法获取的前景
-![前景](http://p88h3xolw.bkt.clouddn.com/18-6-23/8782677.jpg)
+![前景](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/52739086.jpg)
 
 #### 使用MOG2算法获取前景
 使用MOG2算法获取前景的代码应该是这样的:
@@ -149,7 +149,7 @@ def filter_mask(frame, kernel):
     return threshold
 ```
 去噪后的前景
-![去噪后](http://p88h3xolw.bkt.clouddn.com/18-6-23/24557619.jpg)
+![去噪后](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/95683695.jpg)
 
 #### 物体轮廓检测
 

@@ -38,17 +38,17 @@ sudo vim /usr/local/lib/python3.6/dist-packages/matplotlib/mpl-data/matplotlibrc
 
 matplotlibrc为matplotlib的配置文件，打开后找到**font.sans-serif**
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/98728583.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/99204336.jpg)
 
 将前面的**"#"**去除，在**":"**后面加入SimHei。
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/84543082.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/88334617.jpg)
 
 
 
 然后再找到**font.family**，将其修改成如图所示的样子。
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/86528045.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/23579134.jpg)
 
 
 
@@ -66,7 +66,7 @@ plt.title("中文")
 plt.show()
 ~~~
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/46949859.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/24402577.jpg)
 
 matplotlib已经可以正常显示中文了！
 
@@ -80,7 +80,7 @@ matplotlib已经可以正常显示中文了！
 
 使用以下命令可以查看seaborn的配置内容。
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/22276904.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/85123454.jpg)
 
 如果在**font.sans-serif**中没有看到我们设置的中文字体，此时我们需要主动设置中文字体。
 
@@ -88,7 +88,7 @@ matplotlib已经可以正常显示中文了！
 sns.set_style({'font.sans-serif':['simhei']})
 ~~~
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/79252791.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/25013492.jpg)
 
 
 

@@ -79,11 +79,11 @@ def display_table(df):
 
 使用前:
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/13567212.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/35933731.jpg)
 
 使用后:
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/88953001.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/57398525.jpg)
 
 **注意:**
 
@@ -95,17 +95,17 @@ def display_table(df):
 
 使用前:
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/48104829.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/3445237.jpg)
 
 使用后:
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/98022632.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/76856691.jpg)
 
 
 
 ## 7. 显示所有变量详细信息
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/27923396.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/27344830.jpg)
 
 
 
@@ -115,7 +115,7 @@ def display_table(df):
 
 将光标移动到函数上，使用快捷键shift + tab，在函数底部将会显示函数帮助。
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/70444206.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/86540245.jpg)
 
 
 
@@ -123,7 +123,7 @@ def display_table(df):
 
 使用ipython的**"?"**命令，使用后函数的帮助信息将会显示在浏览器底部。
 
-![](http://p88h3xolw.bkt.clouddn.com/18-9-15/338073.jpg)
+![](http://jupiterd-top-image.oss-cn-hangzhou.aliyuncs.com/18-12-3/29560996.jpg)
 
 **Tip:**
 

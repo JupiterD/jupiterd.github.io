@@ -11,6 +11,31 @@ tags: Jupyter-notebook
 
 *此文将会持续更新......*
 
+自用常备合集(根据自己的偏好所写, 非必须):
+
+~~~python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+# 设置绘图风格
+sns.set_style("whitegrid")
+# 设置中文字体, 避免乱码
+sns.set_style({'font.sans-serif':['simhei']})
+
+# 清除警告
+import warnings
+warnings.filterwarnings("always")
+
+# 允许在一个单元格内打印多个变量
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+
+# %matplotlib notebook
+%matplotlib inline
+%config InlineBackend.figure_format='retina'
+~~~
+
 
 
 ## 1. 绘图

@@ -523,7 +523,7 @@ li p:nth-child(2) {
 }
 
 .markdown-body table th {
-    font-weight: 600
+    font-weight: bold;
 }
 
 .markdown-body table th, .markdown-body table td {

@@ -14,6 +14,7 @@
     line-height: 1.5;
     word-wrap: break-word
 }
+
 .markdown-body blockquote, table {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
@@ -155,7 +156,7 @@
 }
 
 /*.markdown-body strong {*/
-    /*font-weight: inherit*/
+/*font-weight: inherit*/
 /*}*/
 
 .markdown-body strong {
@@ -227,7 +228,7 @@
 }
 
 /*.markdown-body strong {*/
-    /*font-weight: 600*/
+/*font-weight: 600*/
 /*}*/
 
 .markdown-body hr {
@@ -271,33 +272,33 @@
 .markdown-body h1 {
     margin-top: 36px;
     font-size: 28px;
-    font-weight: 600
+    font-weight: bold;
 }
 
 .markdown-body h2 {
     margin-top: 28px;
     font-size: 24px;
-    font-weight: 600
+    font-weight: bold;
 }
 
 .markdown-body h3 {
     font-size: 20px;
-    font-weight: 600
+    font-weight: bold;
 }
 
 .markdown-body h4 {
     font-size: 16px;
-    font-weight: 600
+    font-weight: bold;
 }
 
 .markdown-body h5 {
     font-size: 14px;
-    font-weight: 600
+    font-weight: bold;
 }
 
 .markdown-body h6 {
     font-size: 12px;
-    font-weight: 600
+    font-weight: bold;
 }
 
 .markdown-body p {

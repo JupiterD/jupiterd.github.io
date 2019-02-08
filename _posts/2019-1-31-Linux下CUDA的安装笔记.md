@@ -4,6 +4,7 @@ title: 'Linux下CUDA的安装笔记'
 subtitle: 'Linux下CUDA的安装笔记'
 description: 'Linux下CUDA的安装教程'
 date: 2019-01-31
+lastmod: 2019-01-31
 categories: 技术
 tags: CUDA 机器学习
 ---

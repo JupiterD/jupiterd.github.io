@@ -4,6 +4,7 @@ title: 'Ubuntu server 18.04下Spark 2.3.1 + Jupyter notebook服务器端运行�
 subtitle: 'Spark 2.3.1 + Jupyter notebook服务器端运行部署'
 description: '在服务器端部署spark2.3.1并且利用Jupyter notebook与其交互'
 date: 2018-08-18
+lastmod: 2018-08-19
 categories: 技术
 tags: Ubuntu Spark Jupyter-notebook
 ---

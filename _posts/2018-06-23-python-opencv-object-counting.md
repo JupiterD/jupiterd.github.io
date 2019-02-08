@@ -4,6 +4,7 @@ title: 'python+opencv建立通用运动物体计数系统'
 subtitle: '通用运动物体选择，追踪，并记录物体数量。'
 description: 'python+opencv 运动物体 计数'
 date: 2018-06-23
+lastmod: 2018-06-23
 categories: 技术
 tags: python opencv
 ---

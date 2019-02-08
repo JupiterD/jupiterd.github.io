@@ -4,6 +4,7 @@ title: 'Ubuntu下matplotlib seaborn中文乱码解决'
 subtitle: 'matplotlib seaborn中文乱码解决'
 description: '解决matplotlib和seaborn的中文乱码问题'
 date: 2018-09-15
+lastmod: 2018-09-20
 categories: 技术
 tags: Ubuntu matplotlib seaborn
 ---

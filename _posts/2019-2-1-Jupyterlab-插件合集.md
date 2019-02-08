@@ -4,6 +4,7 @@ title: ' JupyterLab 插件合集'
 subtitle: ' JupyterLab 插件合集'
 description: '记录了常用的 JupyterLab 插件合集'
 date: 2019-02-01
+lastmod: 2019-02-09
 categories: 技术
 tags: JupyterLab
 ---

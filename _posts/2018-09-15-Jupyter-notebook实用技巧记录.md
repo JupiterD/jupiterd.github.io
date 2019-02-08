@@ -4,6 +4,7 @@ title: 'Jupyter notebook 实用技巧记录'
 subtitle: 'Jupyter notebook 实用技巧记录'
 description: '记录了自己在jupyter notebook中常用的技巧'
 date: 2018-09-15
+lastmod: 2019-01-20
 categories: 技术
 tags: Jupyter-notebook
 ---

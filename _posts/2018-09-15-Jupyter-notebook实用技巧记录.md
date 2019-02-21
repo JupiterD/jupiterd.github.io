@@ -26,7 +26,7 @@ sns.set_style({'font.sans-serif':['simhei']})
 
 # 清除警告
 import warnings
-warnings.filterwarnings("always")
+warnings.filterwarnings("ignore")
 
 # 允许在一个单元格内打印多个变量
 from IPython.core.interactiveshell import InteractiveShell

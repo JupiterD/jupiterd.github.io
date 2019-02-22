@@ -6,7 +6,7 @@ description: '利用 MXNet 实现softmax回归 代码实现'
 date: 2019-02-15
 lastmod: 2019-02-15
 categories: 技术
-tags: 《动手学深度学习》 机器学习
+tags: 深度学习
 ---
 # 利用 MXNet 实现softmax回归
 
